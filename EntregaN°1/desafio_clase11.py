@@ -8,9 +8,8 @@ def registro():
         Lec = open('datos.json', 'r')
         BaseDatos = dict(json.load(Lec))
         Lec.close()
-        lista = list(BaseDatos.keys())
-        if lista.count(Nombre) == 1 and BaseDatos[Nombre] == Contrasenia:
-            return print(f'{Nombre} ya esta registrado, inicie sesion')
+        if Nombre in BaseDatos:
+            return print(f'{Nombre} ya esta registrado, inicie sesión')
         else:
             AddData = {Nombre: Contrasenia}
             BaseDatos.update(AddData)
@@ -41,11 +40,17 @@ def InicioDeSesion():
         return print('Usuario no registrado')
             
 def Datos():
-    Lec = open('datos.json', 'r')
-    BaseDatos = dict(json.load(Lec))
-    Lec.close()
-    lista = list(BaseDatos.keys())
-    print(lista)
+    if os.path.exists('datos.json'):
+        try:
+            Lec = open('datos.json', 'r')
+            BaseDatos = dict(json.load(Lec))
+            Lec.close()
+            for listausuario in BaseDatos:
+                print(listausuario)
+        except:
+            print('No hay usuario registrado')
+    else:
+        print('No hay usuario registrado')
     
 menu = True
 

@@ -1,6 +1,6 @@
 from Modulo.clientes import Clientes
        
-cliente1 = Clientes("Luis", "Tecchio", "tecchio2013@gmail.com", 3515080450, "Argentina", 39421949)
+cliente1 = Clientes("Luis", "Tecchio", "tecchio2014@gmail.com", 3515080566, "Argentina", 41421949)
 
 print(cliente1)
 print(cliente1.carrito)
